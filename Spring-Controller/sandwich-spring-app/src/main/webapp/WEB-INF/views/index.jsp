@@ -11,11 +11,11 @@
     <title>Sandwich</title>
   </head>
   <body>
- <form action="/save" method="get">
-   <input type="checkbox" value="Lettuce"> Lettuce
-   <input type="checkbox" value="Tomato"> Tomato
-   <input type="checkbox" value="Mustard"> Mustard
-   <input type="checkbox" value="Sprouts"> Sprouts
+ <form action="/save" method="post">
+   <input type="checkbox" value="Lettuce" name="condiment"> Lettuce
+   <input type="checkbox" value="Tomato" name="condiment"> Tomato
+   <input type="checkbox" value="Mustard" name="condiment"> Mustard
+   <input type="checkbox" value="Sprouts" name="condiment"> Sprouts
 
    <hr>
    <input type="submit" value="save">

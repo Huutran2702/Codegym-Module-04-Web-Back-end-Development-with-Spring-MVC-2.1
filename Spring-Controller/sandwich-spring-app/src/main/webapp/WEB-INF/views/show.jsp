@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: Admin
@@ -12,5 +13,13 @@
 </head>
 <body>
 <h3>Success</h3>
+
+<ul>
+    <c:forEach var="c" items="${condiment}">
+        <li>
+            <c:out value="${c.toString()}"/>
+        </li>
+    </c:forEach>
+</ul>
 </body>
 </html>
