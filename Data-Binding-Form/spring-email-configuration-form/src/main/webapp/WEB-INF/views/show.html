@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:form="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Show Email Configuration</title>
+</head>
+<body>
+<h1> Show Configuration </h1>
+<div th:object="${emailConfiguration}">
+    <label>Languages: </label>
+    <label th:text="*{languages}"></label>
+    <br>
+    <label>Page Size: </label>
+    <label th:text="*{pageSize}"></label>
+    <br>
+    <label>Spams filter: </label>
+    <label th:text="*{spamsFilter}"></label>
+    <br>
+    <label>Signature: </label>
+    <label th:text="*{signature}"></label>
+</div>
+</body>
+</html>
