@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpServletRequest;
 import java.io.File;
 import java.io.IOException;
 import java.util.List;
@@ -38,11 +39,15 @@ public class ProductController {
     }
 
     @PostMapping("/save")
-    public ModelAndView saveProduct(@ModelAttribute ProductForm productForm) {
+    public ModelAndView saveProduct(@ModelAttribute ProductForm productForm, HttpServletRequest request) {
         MultipartFile multipartFile = productForm.getImage();
         String fileName = multipartFile.getOriginalFilename();
+        String rootMap = request.getServletContext().getRealPath("/upload/");
+        if (fileUpload.isEmpty()) {
+            fileUpload = rootMap;
+        }
         try {
-            FileCopyUtils.copy(productForm.getImage().getBytes(), new File(fileUpload + fileName));
+            FileCopyUtils.copy(productForm.getImage().getBytes(), new File( fileUpload + fileName));
         } catch (IOException ex) {
             ex.printStackTrace();
         }
