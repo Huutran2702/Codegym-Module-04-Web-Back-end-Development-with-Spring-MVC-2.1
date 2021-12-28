@@ -15,8 +15,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.io.File;
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.util.List;
 
 @Controller
@@ -35,10 +38,11 @@ public class MusicController {
     }
 
     @GetMapping("/create")
-    public ModelAndView showCreateForm() {
+    public ModelAndView showCreateForm(HttpServletResponse response, HttpServletRequest request) throws UnsupportedEncodingException {
+        response.setContentType("text/html/charset=UTF-8");
         ModelAndView modelAndView = new ModelAndView("/create");
         modelAndView.addObject("musicForm", new MusicForm());
-        String[] styles = new String[]{"Nhac vang", "Nhac do", "Nhac cach mang", "Nhac tre", "Nhac thieu nhi"};
+        String[] styles = new String[]{"Nhạc vàng", "Nhạc đỏ", "Nhạc cách mạng", "Nhạc trẻ", "Nhạc thiếu nhi"};
         modelAndView.addObject("styles", styles);
         return modelAndView;
     }

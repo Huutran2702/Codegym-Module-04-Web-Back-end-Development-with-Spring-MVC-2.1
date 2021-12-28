@@ -19,7 +19,13 @@
         </div>
         <div>
             <label>Style</label>
-            <select  th:field="*{style}">
+            <select th:field="*{style}" style="
+    width: 500px;
+    height: 40px;
+    font-size: 13px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+">
                 <option th:each="s: ${styles}" th:value="${s}" th:text="${s}"></option>
             </select>
         </div>

@@ -10,7 +10,7 @@ repositories {
     mavenCentral()
     mavenCentral()
 }
-
+compileJava.options.encoding = 'UTF-8'
 dependencies {
     providedCompile group: 'javax.servlet', name: 'javax.servlet-api', version: '4.0.1'
     implementation group: 'org.springframework', name: 'spring-core', version: '5.3.2'

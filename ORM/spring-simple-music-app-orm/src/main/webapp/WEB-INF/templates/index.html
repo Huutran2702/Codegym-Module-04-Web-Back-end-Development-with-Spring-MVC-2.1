@@ -25,7 +25,7 @@
         <td th:text="${music.singer}"></td>
 
         <td>
-            <audio controls autoplay loop muted>
+            <audio controls>
                 <source th:src="@{'/music/' + ${music.filePath}}" >
             </audio>
 
