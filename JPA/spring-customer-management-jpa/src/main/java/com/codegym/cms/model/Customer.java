@@ -1,6 +1,7 @@
 package com.codegym.cms.model;
 
 import javax.persistence.*;
+import java.util.Objects;
 
 @Entity
 @Table(name = "customers")
@@ -47,4 +48,7 @@ public class Customer {
     public String toString() {
         return String.format("Customer[id=%d, firstName='%s', lastName='%s']", id, firstName, lastName);
     }
+
+
+
 }

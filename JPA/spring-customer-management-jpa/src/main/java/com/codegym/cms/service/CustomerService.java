@@ -12,6 +12,11 @@ public class CustomerService implements ICustomerService {
     private ICustomerRepository customerRepository;
 
     @Override
+    public List<Customer> searchByAll(String keySearch) {
+        return customerRepository.searchByAll(keySearch);
+    }
+
+    @Override
     public List<Customer> findAll() {
         return customerRepository.findAll();
     }

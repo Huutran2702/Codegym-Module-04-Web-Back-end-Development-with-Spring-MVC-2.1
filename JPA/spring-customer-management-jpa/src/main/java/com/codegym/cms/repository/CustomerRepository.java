@@ -2,17 +2,50 @@ package com.codegym.cms.repository;
 
 import com.codegym.cms.model.Customer;
 
+
+
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 import javax.transaction.Transactional;
+import java.util.ArrayList;
 import java.util.List;
 @Transactional
 public class CustomerRepository implements ICustomerRepository {
 
     @PersistenceContext
     private EntityManager em;
+
+    @Override
+    public List<Customer> searchByAll(String keySearch) {
+        String hql;
+        List<Customer> searchs = new ArrayList<>();
+        for (String str: new String[]{"c.id","c.firstName","c.lastName"}
+             ) {
+                 hql = "select c from Customer c " +
+                        "where "+str+" LIKE '%"+ keySearch +"%'";
+            TypedQuery<Customer> query = em.createQuery(hql, Customer.class);
+
+                if (query.getResultList()!= null) {
+                    System.out.println(123);
+                    searchs.addAll(query.getResultList());
+
+                }
+        }
+        for (int i = 0; i < searchs.size(); i++) {
+            for (int j = 1; j <searchs.size()-1; j++) {
+                if (searchs.get(i).equals(searchs.get(j))) {
+                    searchs.remove(j);
+                }
+            }
+        }
+
+
+        return searchs;
+
+    }
+
     @Override
     public List<Customer> findAll() {
         TypedQuery<Customer> query = em.createQuery("select c from Customer c", Customer.class);
@@ -46,4 +79,6 @@ public class CustomerRepository implements ICustomerRepository {
             em.remove(customer);
         }
     }
+
+
 }
