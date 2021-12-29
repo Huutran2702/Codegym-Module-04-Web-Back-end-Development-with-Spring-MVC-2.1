@@ -1,7 +1,5 @@
 package cg.wbd.grandemonstration;
 
-import cg.wbd.grandemonstration.service.CustomerService;
-import cg.wbd.grandemonstration.service.impl.SimpleCustomerServiceImpl;
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
@@ -30,6 +28,8 @@ public class AppConfig implements WebMvcConfigurer, ApplicationContextAware {
     public ThymeleafViewResolver viewResolver() {
         ThymeleafViewResolver viewResolver = new ThymeleafViewResolver();
         viewResolver.setTemplateEngine(templateEngine());
+//        Cấu hình view unicode
+        viewResolver.setCharacterEncoding("UTF-8");
         return viewResolver;
     }
 
@@ -49,5 +49,4 @@ public class AppConfig implements WebMvcConfigurer, ApplicationContextAware {
         templateResolver.setTemplateMode(TemplateMode.HTML);
         return templateResolver;
     }
-
 }

@@ -2,12 +2,10 @@ package cg.wbd.grandemonstration.controller;
 
 import cg.wbd.grandemonstration.model.Customer;
 import cg.wbd.grandemonstration.service.CustomerService;
+import cg.wbd.grandemonstration.service.HibernateCustomerServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
@@ -18,7 +16,7 @@ public class CustomerController {
     @Autowired
     private CustomerService customerService;
 
-    @GetMapping
+    @GetMapping("")
     public ModelAndView showList() {
         ModelAndView modelAndView = new ModelAndView("customers/list");
         List<Customer> customers = customerService.findAll();
@@ -37,6 +35,24 @@ public class CustomerController {
     @PostMapping
     public String updateCustomer(Customer customer) {
         customerService.save(customer);
+        return "redirect:/customers";
+    }
+
+    @GetMapping("create")
+     public String createCustomer(){
+        return "customers/create";
+    }
+
+    @PostMapping("create")
+    public String insertCustomer(@ModelAttribute Customer customer){
+        customerService = new HibernateCustomerServiceImpl();
+        customerService.save(customer);
+        return "redirect:/customers";
+    }
+
+    @GetMapping("/remove/{id}")
+    public String removeCustomer(@PathVariable Long id){
+        customerService.delete(id);
         return "redirect:/customers";
     }
 }

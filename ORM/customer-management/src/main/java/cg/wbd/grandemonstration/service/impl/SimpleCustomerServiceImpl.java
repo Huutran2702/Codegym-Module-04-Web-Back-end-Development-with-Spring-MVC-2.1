@@ -2,6 +2,9 @@ package cg.wbd.grandemonstration.service.impl;
 
 import cg.wbd.grandemonstration.model.Customer;
 import cg.wbd.grandemonstration.service.CustomerService;
+import org.hibernate.HibernateException;
+import org.hibernate.SessionFactory;
+import org.hibernate.cfg.Configuration;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,6 +26,9 @@ public class SimpleCustomerServiceImpl implements CustomerService {
         );
     }
 
+
+
+
     @Override
     public List<Customer> findAll() {
         return new ArrayList<>(customers);
@@ -41,12 +47,7 @@ public class SimpleCustomerServiceImpl implements CustomerService {
         return customer.getId() == null ? persist(customer) : merge(customer);
     }
 
-    @Override
-    public List<Customer> save(List<Customer> customers) {
-        return customers.stream()
-                .map(this::save)
-                .collect(Collectors.toList());
-    }
+
 
     @Override
     public boolean exists(Long id) {
@@ -99,4 +100,5 @@ public class SimpleCustomerServiceImpl implements CustomerService {
         origin.setAddress(customer.getAddress());
         return origin;
     }
+
 }
