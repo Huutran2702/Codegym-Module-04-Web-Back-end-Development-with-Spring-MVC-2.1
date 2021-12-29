@@ -49,6 +49,13 @@ public class Customer {
         return String.format("Customer[id=%d, firstName='%s', lastName='%s']", id, firstName, lastName);
     }
 
+    @Override
+    public boolean equals(Object o) {
+        return this.toString().equals(o.toString());
+    }
 
-
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, firstName, lastName);
+    }
 }

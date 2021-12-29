@@ -28,13 +28,11 @@ public class CustomerRepository implements ICustomerRepository {
             TypedQuery<Customer> query = em.createQuery(hql, Customer.class);
 
                 if (query.getResultList()!= null) {
-                    System.out.println(123);
                     searchs.addAll(query.getResultList());
-
                 }
         }
-        for (int i = 0; i < searchs.size(); i++) {
-            for (int j = 1; j <searchs.size()-1; j++) {
+        for (int i = 0; i < searchs.size()-1; i++) {
+            for (int j = i+1; j <searchs.size(); j++) {
                 if (searchs.get(i).equals(searchs.get(j))) {
                     searchs.remove(j);
                 }
