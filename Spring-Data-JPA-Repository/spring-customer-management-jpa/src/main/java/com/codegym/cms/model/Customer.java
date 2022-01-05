@@ -1,6 +1,10 @@
 package com.codegym.cms.model;
 
+
+
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 import java.util.Objects;
 
 @Entity
@@ -10,11 +14,21 @@ public class Customer {
     @Column(name = "id", nullable = false)
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+
+    @NotBlank(message = "{error.firstName.blank}")
+    @Size(min = 2,max = 15,message = "{error.firstName.outOfSize}")
     private String firstName;
+
+    @NotBlank(message = "{error.lastName.blank}")
+    @Size(min = 2,max = 15,message = "{error.lastName.outOfSize}")
     private String lastName;
+
     @ManyToOne
     @JoinColumn(name = "province_id")
     private Province province;
+
+    @Column(nullable = false,unique = true)
+    private String phoneNumber;
 
     public Customer() {
     }
@@ -68,5 +82,13 @@ public class Customer {
     @Override
     public int hashCode() {
         return Objects.hash(id, firstName, lastName);
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
 }

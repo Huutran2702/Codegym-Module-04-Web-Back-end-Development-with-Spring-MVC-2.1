@@ -31,10 +31,16 @@
             </td>
         </tr>
         <tr>
+            <td>Phone number:</td>
+            <td><input type="text" th:field="*{phoneNumber}"/></td>
+        </tr>
+        <tr>
             <td></td>
             <td><input type="submit" value="Create customer"></td>
         </tr>
     </table>
+    <span th:errors = "*"></span>
 </form>
+
 </body>
 </html>

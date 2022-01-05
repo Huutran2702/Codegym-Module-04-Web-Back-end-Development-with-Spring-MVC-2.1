@@ -41,6 +41,11 @@ public class CustomerService implements ICustomerService {
     }
 
     @Override
+    public boolean existsCustomerByPhoneNumber(String phone) {
+        return customerRepository.existsCustomerByPhoneNumber(phone);
+    }
+
+    @Override
     public void save(Customer customer) {
         customerRepository.save(customer);
     }
