@@ -10,5 +10,4 @@ import java.util.Optional;
 public interface ICustomerRepository extends JpaRepository<Customer,Long> {
 
 
-
 }

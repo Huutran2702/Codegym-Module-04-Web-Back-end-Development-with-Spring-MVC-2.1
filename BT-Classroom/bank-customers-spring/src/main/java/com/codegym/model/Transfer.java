@@ -1,6 +1,7 @@
 package com.codegym.model;
 
 import javax.persistence.*;
+import javax.validation.constraints.*;
 import java.util.Date;
 
 @Entity
@@ -11,16 +12,20 @@ public class Transfer {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    private Date created_at;
+    @Column(name = "create_at")
+    private Date createdAt;
 
-    private long created_by;
+    @Column(name = "create_by")
+    private long createBy;
 
     @Column(columnDefinition = "tinyint(1) DEFAULT '0'")
     private int deleted;
 
-    private Date updated_at;
+    @Column(name = "update_at")
+    private Date updatedAt;
 
-    private long updated_by;
+    @Column(name = "update_by")
+    private long updateBy;
 
     @Column(columnDefinition = "int(11) NOT NULL")
     private int fees;
@@ -32,33 +37,36 @@ public class Transfer {
     private long transaction_amount;
 
     @Column(columnDefinition = "decimal(12,0) NOT NULL")
+    @Min(value = 50,message = "{error.transfer_amount.lt50}")
+    @Max(100000000)
+    @NotNull(message = "{error.transfer_amount.blank}")
     private long transfer_amount;
 
     @OneToOne
     @JoinColumn(name = "recipient_id",nullable = false)
-    private Customer recipient_id;
+    private Customer recipient;
 
     @OneToOne
     @JoinColumn(name = "sender_id",nullable = false)
-    private Customer sender_id;
+    private Customer sender;
 
     public Transfer() {
     }
 
-    public Transfer(long id, Date created_at, long created_by, int deleted, Date updated_at, long updated_by, int fees,
-                    long fees_amount, long transaction_amount, long transfer_amount, Customer recipient_id, Customer sender_id) {
+    public Transfer(long id, Date createdAt, long createBy, int deleted, Date updatedAt, long updateBy,
+                    int fees, long fees_amount, long transaction_amount, long transfer_amount, Customer recipient, Customer sender) {
         this.id = id;
-        this.created_at = created_at;
-        this.created_by = created_by;
+        this.createdAt = createdAt;
+        this.createBy = createBy;
         this.deleted = deleted;
-        this.updated_at = updated_at;
-        this.updated_by = updated_by;
+        this.updatedAt = updatedAt;
+        this.updateBy = updateBy;
         this.fees = fees;
         this.fees_amount = fees_amount;
         this.transaction_amount = transaction_amount;
         this.transfer_amount = transfer_amount;
-        this.recipient_id = recipient_id;
-        this.sender_id = sender_id;
+        this.recipient = recipient;
+        this.sender = sender;
     }
 
     public long getId() {
@@ -69,20 +77,20 @@ public class Transfer {
         this.id = id;
     }
 
-    public Date getCreated_at() {
-        return created_at;
+    public Date getCreatedAt() {
+        return createdAt;
     }
 
-    public void setCreated_at(Date created_at) {
-        this.created_at = created_at;
+    public void setCreatedAt(Date createdAt) {
+        this.createdAt = createdAt;
     }
 
-    public long getCreated_by() {
-        return created_by;
+    public long getCreateBy() {
+        return createBy;
     }
 
-    public void setCreated_by(long created_by) {
-        this.created_by = created_by;
+    public void setCreateBy(long createBy) {
+        this.createBy = createBy;
     }
 
     public int getDeleted() {
@@ -93,20 +101,20 @@ public class Transfer {
         this.deleted = deleted;
     }
 
-    public Date getUpdated_at() {
-        return updated_at;
+    public Date getUpdatedAt() {
+        return updatedAt;
     }
 
-    public void setUpdated_at(Date updated_at) {
-        this.updated_at = updated_at;
+    public void setUpdatedAt(Date updatedAt) {
+        this.updatedAt = updatedAt;
     }
 
-    public long getUpdated_by() {
-        return updated_by;
+    public long getUpdateBy() {
+        return updateBy;
     }
 
-    public void setUpdated_by(long updated_by) {
-        this.updated_by = updated_by;
+    public void setUpdateBy(long updateBy) {
+        this.updateBy = updateBy;
     }
 
     public int getFees() {
@@ -141,19 +149,19 @@ public class Transfer {
         this.transfer_amount = transfer_amount;
     }
 
-    public Customer getRecipient_id() {
-        return recipient_id;
+    public Customer getRecipient() {
+        return recipient;
     }
 
-    public void setRecipient_id(Customer recipient_id) {
-        this.recipient_id = recipient_id;
+    public void setRecipient(Customer recipient) {
+        this.recipient = recipient;
     }
 
-    public Customer getSender_id() {
-        return sender_id;
+    public Customer getSender() {
+        return sender;
     }
 
-    public void setSender_id(Customer sender_id) {
-        this.sender_id = sender_id;
+    public void setSender(Customer sender) {
+        this.sender = sender;
     }
 }

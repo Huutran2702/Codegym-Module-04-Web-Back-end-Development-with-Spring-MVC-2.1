@@ -11,9 +11,9 @@ public interface IGeneralService<T> {
 
     Optional<T> findById(Long id);
 
-    void save(T t);
+    T save(T t);
 
-    void remove(Long id);
+    void remove(T t);
 
 
 

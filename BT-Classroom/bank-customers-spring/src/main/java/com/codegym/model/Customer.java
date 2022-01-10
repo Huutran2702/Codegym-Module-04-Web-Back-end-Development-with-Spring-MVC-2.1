@@ -1,11 +1,15 @@
 package com.codegym.model;
 
+import org.springframework.validation.Errors;
+import org.springframework.validation.Validator;
+
 import javax.persistence.*;
+import javax.validation.constraints.*;
 import java.util.Date;
 
 @Entity
 @Table(name = "customers")
-public class Customer {
+public class Customer implements Validator {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,8 +26,12 @@ public class Customer {
 
     private long updated_by;
 
+    @NotEmpty(message = "{error.fullName.blank}")
     private String fullName;
 
+    @NotBlank(message = "{error.email.blank}")
+    @Pattern(regexp = "^[a-z][a-z0-9_\\.]{5,32}@[a-z0-9]{2,}(\\.[a-z0-9]{2,4}){1,2}$",message = "{error.email.pattern}")
+    @Size(min = 10,max = 100,message = "{error.email.outOfSize}")
     private String email;
 
     private String phone;
@@ -138,5 +146,15 @@ public class Customer {
 
     public void setBalance(long balance) {
         this.balance = balance;
+    }
+
+    @Override
+    public boolean supports(Class<?> clazz) {
+        return false;
+    }
+
+    @Override
+    public void validate(Object target, Errors errors) {
+
     }
 }

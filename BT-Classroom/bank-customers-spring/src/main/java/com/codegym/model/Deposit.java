@@ -1,7 +1,14 @@
 package com.codegym.model;
 
+import org.springframework.data.annotation.CreatedBy;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.*;
+import javax.validation.constraints.*;
 import java.util.Date;
+
+
 
 @Entity
 @Table(name = "deposits")
@@ -11,36 +18,43 @@ public class Deposit {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    private Date created_at;
+    @Column(name = "create_at")
+    private Date createdAt;
 
-    private long created_by;
+    @Column(name = "create_by")
+    private long createdBy;
 
     @Column(columnDefinition = "tinyint(1) DEFAULT '0'")
     private int deleted;
 
-    private Date updated_at;
+    @Column(name = "update_at")
+    private Date updatedAt;
 
-    private long updated_by;
+    @Column(name = "update_by")
+    private long updateBy;
 
     @ManyToOne(targetEntity = Customer.class)
     @JoinColumn(name = "customer_id",nullable = false)
-    private Customer customer_id;
+    private Customer customer;
 
-    @Column(columnDefinition = "decimal(12,0) NOT NULL")
+    @Column(columnDefinition = "decimal(12,0)")
+    @Min(value = 50,message = "{error.transaction_amount.lt50}")
+    @Max(100000000)
+    @NotNull(message = "{error.transaction_amount.blank}")
     private long transaction_amount;
 
     public Deposit() {
     }
 
-    public Deposit(long id, Date created_at, long created_by, int deleted, Date updated_at,
-                   long updated_by, Customer customer_id, long transaction_amount) {
+    public Deposit(long id, Date createdAt, long createdBy, int deleted,
+                   Date updatedAt, long updateBy, Customer customer, long transaction_amount) {
         this.id = id;
-        this.created_at = created_at;
-        this.created_by = created_by;
+        this.createdAt = createdAt;
+        this.createdBy = createdBy;
         this.deleted = deleted;
-        this.updated_at = updated_at;
-        this.updated_by = updated_by;
-        this.customer_id = customer_id;
+        this.updatedAt = updatedAt;
+        this.updateBy = updateBy;
+        this.customer = customer;
         this.transaction_amount = transaction_amount;
     }
 
@@ -52,20 +66,20 @@ public class Deposit {
         this.id = id;
     }
 
-    public Date getCreated_at() {
-        return created_at;
+    public Date getCreatedAt() {
+        return createdAt;
     }
 
-    public void setCreated_at(Date created_at) {
-        this.created_at = created_at;
+    public void setCreatedAt(Date createdAt) {
+        this.createdAt = createdAt;
     }
 
-    public long getCreated_by() {
-        return created_by;
+    public long getCreatedBy() {
+        return createdBy;
     }
 
-    public void setCreated_by(long created_by) {
-        this.created_by = created_by;
+    public void setCreatedBy(long createdBy) {
+        this.createdBy = createdBy;
     }
 
     public int getDeleted() {
@@ -76,28 +90,28 @@ public class Deposit {
         this.deleted = deleted;
     }
 
-    public Date getUpdated_at() {
-        return updated_at;
+    public Date getUpdatedAt() {
+        return updatedAt;
     }
 
-    public void setUpdated_at(Date updated_at) {
-        this.updated_at = updated_at;
+    public void setUpdatedAt(Date updatedAt) {
+        this.updatedAt = updatedAt;
     }
 
-    public long getUpdated_by() {
-        return updated_by;
+    public long getUpdateBy() {
+        return updateBy;
     }
 
-    public void setUpdated_by(long updated_by) {
-        this.updated_by = updated_by;
+    public void setUpdateBy(long updateBy) {
+        this.updateBy = updateBy;
     }
 
-    public Customer getCustomer_id() {
-        return customer_id;
+    public Customer getCustomer() {
+        return customer;
     }
 
-    public void setCustomer_id(Customer customer_id) {
-        this.customer_id = customer_id;
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
     }
 
     public long getTransaction_amount() {
