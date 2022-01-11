@@ -29,6 +29,7 @@ public class SmartphoneController {
         return modelAndView;
     }
 
+
     @GetMapping
     public ResponseEntity<Iterable<Smartphone>> allPhones() {
         return new ResponseEntity<>(smartphoneService.findAll(), HttpStatus.OK);
