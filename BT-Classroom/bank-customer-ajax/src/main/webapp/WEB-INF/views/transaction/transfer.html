@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Transfer</title>
+
+  <th:block th:insert="~{/layout/head::head}">
+
+  </th:block>
+
+</head>
+<body>
+<div class="container">
+  <div class="table-title mb-4">
+    <div class="row">
+      <div class="col-sm-6">
+        <h1>Transfer money Information</h1>
+      </div>
+      <div class="col-sm-6">
+        <a href="/customers" class="btn btn-outline-light"><i class="fa fa-list" aria-hidden="true"></i> <span>Customer list</span></a>
+      </div>
+    </div>
+  </div>
+  <form id="frmTransfer" method="post" th:object="${transfer}">
+    <fieldset class="row g-3">
+      <div class="form-group row">
+        <div class="mb-3 col-md-3">
+          <label class="col-sm-12 col-form-label">Sender ID</label>
+          <div class="col-sm-12">
+            <input type="text" class="form-control" readonly id="senderId" name="senderId" th:value="${transfer.sender.id}">
+          </div>
+        </div>
+        <div class="mb-3 col-md-3">
+          <label class="col-sm-12 col-form-label">Sender Name</label>
+          <div class="col-sm-12">
+            <input type="text" class="form-control" readonly id="senderName" name="senderName" th:value="${transfer.sender.fullName}">
+          </div>
+        </div>
+        <div class="mb-3 col-md-3">
+          <label class="col-sm-12 col-form-label">Email</label>
+          <div class="col-sm-12">
+            <input type="email" class="form-control" readonly id="email" name="email" th:value="${transfer.sender.email}">
+          </div>
+        </div>
+        <div class="mb-3 col-md-3">
+          <label class="col-sm-12 col-form-label">Sender balance</label>
+          <div class="col-sm-12">
+            <input type="text" class="form-control num-space" readonly id="balance" name="balance" th:value="${transfer.sender.balance}">
+          </div>
+        </div>
+      </div>
+      <div class="form-group row mb-4">
+        <div class="mb-3 col-md-3">
+          <label for="recipient_id" class="col-sm-12 col-form-label">Recipient Name</label>
+          <div class="col-sm-12">
+            <select id="recipient_id" class="form-select" name="recipient" >
+              <option th:each="c:${customers}"
+                      th:value="${c.id}"
+                      th:text="'('+${c.id}+') '+ ${c.fullName}"
+                      ></option>
+            </select>
+          </div>
+        </div>
+        <div class="mb-3 col-md-3">
+          <label class="col-sm-12 col-form-label">Transfer Amount ($)</label>
+          <div class="col-sm-12">
+            <input type="number" class="form-control num-space" id="transferAmount" name="transfer_amount" value="0">
+          </div>
+        </div>
+        <div class="mb-3 col-md-3">
+          <label class="col-sm-12 col-form-label">Fees (%)</label>
+          <div class="col-sm-12">
+            <input type="text" class="form-control num-space" value="10" readonly>
+          </div>
+        </div>
+        <div class="mb-3 col-md-3">
+          <label class="col-sm-12 col-form-label">Total amount of transaction ($)</label>
+          <div class="col-sm-12">
+            <input type="text" class="form-control num-space" readonly id="transactionAmount" name="transaction_amount" value="">
+          </div>
+        </div>
+      </div>
+      <div class="form-group row">
+        <div class="mb-3 col-md-12">
+          <div class="col-sm-4">
+            <button type="submit" class="btn btn-outline-primary">
+              <i class="fa fa-exchange" aria-hidden="true"></i>
+              Transfer
+            </button>
+          </div>
+        </div>
+      </div>
+    </fieldset>
+  </form>
+</div>
+<div class="footer">
+  <div id="message-alert">
+
+
+    <div class="alert-success" th:if="${message}=='success'">
+      <h5><span>Successful transfer transaction</span></h5>
+    </div>
+    <span id="close">X</span>
+    <script>
+      $("#close").on("click", function () {
+        $(".footer").css("height", 0);
+        $("#message-alert").empty();
+      });
+
+      $(".alert-success").fadeTo(5000, 500).fadeOut(1000, function () {
+        $(".footer").css("height", 0);
+        $("#message-alert").empty();
+      });
+    </script>
+
+    <div class="alert-danger" th:if="${message} =='error'">
+      <h5>Please correct errors below:</h5>
+      <ul th:if="${outOfMoney}" >
+        <li th:text="${outOfMoney}"></li>
+      </ul>
+      <ul th:each="er:${errorMsg}">
+       <th:block th:switch="${er.getCodes()[0]}">
+        <li th:case="'typeMismatch.transfer.transfer_amount'">
+          Không được để trống Transfer Amount
+        </li>
+         <li th:case="'typeMismatch.transfer.transaction_amount'">
+           Không được để trống Transaction Amount
+         </li>
+         <li th:case="*" th:text="${er.getDefaultMessage()}">
+         </li>
+       </th:block>
+      </ul>
+    </div>
+
+  </div>
+</div>
+
+
+<th:block th:insert="~{/layout/head::script}">
+
+</th:block>
+
+
+<script>
+  $(document).ready(function() {
+    $("#transferAmount").on("change", function () {
+      let transferAmount = $(this).val();
+      let fees = 10;
+      let feeAmount = transferAmount * fees / 100;
+      let transactionAmount = parseInt(transferAmount) + feeAmount;
+      $("#transactionAmount").val(transactionAmount);
+    });
+  });
+</script>
+
+</body>
+</html>

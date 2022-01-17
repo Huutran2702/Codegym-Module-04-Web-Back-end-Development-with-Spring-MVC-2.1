@@ -42,11 +42,11 @@ public class Transfer {
     @NotNull(message = "{error.transfer_amount.blank}")
     private long transfer_amount;
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "recipient_id",nullable = false)
     private Customer recipient;
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "sender_id",nullable = false)
     private Customer sender;
 

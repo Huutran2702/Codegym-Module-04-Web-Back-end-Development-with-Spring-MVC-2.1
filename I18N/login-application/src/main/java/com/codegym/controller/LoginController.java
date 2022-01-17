@@ -7,6 +7,9 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.Locale;
+import java.util.ResourceBundle;
+
 @Controller
 public class LoginController {
 
@@ -15,6 +18,8 @@ public class LoginController {
         ModelAndView modelAndView = new ModelAndView("/login");
         User user = new User();
         modelAndView.addObject("user",user);
+        ResourceBundle resourceBundle = ResourceBundle.getBundle("message",new Locale("haw"));
+        modelAndView.addObject("resourceBundle",resourceBundle);
         return modelAndView;
     }
 

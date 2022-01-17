@@ -5,50 +5,71 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f6ca6469-c2aa-4e03-8328-98f5a1f9abba" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gradle/7.1/dependencies-accessors/dependencies-accessors.lock" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.gradle/7.1/dependencies-accessors/gc.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.gradle/7.1/executionHistory/executionHistory.bin" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.gradle/7.1/executionHistory/executionHistory.lock" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.gradle/7.1/fileChanges/last-build.bin" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.gradle/7.1/fileHashes/fileHashes.bin" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.gradle/7.1/fileHashes/fileHashes.lock" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.gradle/7.1/gc.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.gradle/checksums/checksums.lock" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.gradle/vcs-1/gc.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/classes/java/main/com/codegym/configuration/AppConfiguration.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/classes/java/main/com/codegym/configuration/AppInitializer.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/libs/login-application-1.0-SNAPSHOT.war" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/resources/main/message.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/tmp/war/MANIFEST.MF" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradlew" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradlew.bat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/settings.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/codegym/configuration/AppConfiguration.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/codegym/configuration/AppInitializer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/codegym/controller/LoginController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/codegym/model/User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/message.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/message_haw.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/dashboard.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../jQuery-AJAX/phone-management/.gradle/7.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../../jQuery-AJAX/phone-management/.gradle/7.1/executionHistory/executionHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../jQuery-AJAX/phone-management/.gradle/7.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../jQuery-AJAX/phone-management/.gradle/7.1/executionHistory/executionHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../jQuery-AJAX/phone-management/.gradle/7.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../../jQuery-AJAX/phone-management/.gradle/7.1/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../jQuery-AJAX/phone-management/.gradle/7.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../jQuery-AJAX/phone-management/.gradle/7.1/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../jQuery-AJAX/phone-management/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../jQuery-AJAX/phone-management/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../jQuery-AJAX/phone-management/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../jQuery-AJAX/phone-management/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../jQuery-AJAX/phone-management/build/classes/java/main/com/codegym/controller/SmartphoneController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../jQuery-AJAX/phone-management/build/classes/java/main/com/codegym/controller/SmartphoneController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../jQuery-AJAX/phone-management/build/libs/phone-management-1.0-SNAPSHOT.war" beforeDir="false" afterPath="$PROJECT_DIR$/../../jQuery-AJAX/phone-management/build/libs/phone-management-1.0-SNAPSHOT.war" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../jQuery-AJAX/phone-management/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../../jQuery-AJAX/phone-management/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../jQuery-AJAX/phone-management/src/main/java/com/codegym/controller/SmartphoneController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../jQuery-AJAX/phone-management/src/main/java/com/codegym/controller/SmartphoneController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../jQuery-AJAX/phone-management/src/main/webapp/WEB-INF/views/phones/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../jQuery-AJAX/phone-management/src/main/webapp/WEB-INF/views/phones/list.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../BT-Classroom/bank-customer-ajax/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../BT-Classroom/bank-customer-ajax/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../BT-Classroom/bank-customer-ajax/.idea/gradle.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../BT-Classroom/bank-customer-ajax/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../BT-Classroom/bank-customer-ajax/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../BT-Classroom/bank-customer-ajax/.idea/jpa-buddy.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../BT-Classroom/bank-customer-ajax/.idea/jsLibraryMappings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../BT-Classroom/bank-customer-ajax/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../BT-Classroom/bank-customer-ajax/.idea/runConfigurations.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../BT-Classroom/bank-customer-ajax/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../BT-Classroom/bank-customer-ajax/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../BT-Classroom/bank-customer-ajax/.idea/webContexts.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../BT-Classroom/bank-customer-ajax/build/classes/java/main/com/codegym/controller/restful/CustomerRestController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../BT-Classroom/bank-customer-ajax/src/main/java/com/codegym/configuration/AppConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../BT-Classroom/bank-customer-ajax/src/main/java/com/codegym/configuration/AppInitializer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../BT-Classroom/bank-customer-ajax/src/main/java/com/codegym/controller/CustomerController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../BT-Classroom/bank-customer-ajax/src/main/java/com/codegym/controller/ErrorController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../BT-Classroom/bank-customer-ajax/src/main/java/com/codegym/controller/restful/CustomerRestController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../BT-Classroom/bank-customer-ajax/src/main/java/com/codegym/model/Customer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../BT-Classroom/bank-customer-ajax/src/main/java/com/codegym/model/Deposit.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../BT-Classroom/bank-customer-ajax/src/main/java/com/codegym/model/Transfer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../BT-Classroom/bank-customer-ajax/src/main/java/com/codegym/model/Withdraw.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../BT-Classroom/bank-customer-ajax/src/main/java/com/codegym/repository/ICustomerRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../BT-Classroom/bank-customer-ajax/src/main/java/com/codegym/repository/IDepositRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../BT-Classroom/bank-customer-ajax/src/main/java/com/codegym/repository/ITransferRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../BT-Classroom/bank-customer-ajax/src/main/java/com/codegym/repository/IWithdrawRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../BT-Classroom/bank-customer-ajax/src/main/java/com/codegym/service/CustomerService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../BT-Classroom/bank-customer-ajax/src/main/java/com/codegym/service/DepositService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../BT-Classroom/bank-customer-ajax/src/main/java/com/codegym/service/ICustomerService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../BT-Classroom/bank-customer-ajax/src/main/java/com/codegym/service/IDepositService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../BT-Classroom/bank-customer-ajax/src/main/java/com/codegym/service/IGeneralService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../BT-Classroom/bank-customer-ajax/src/main/java/com/codegym/service/ITransferService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../BT-Classroom/bank-customer-ajax/src/main/java/com/codegym/service/IWithdrawService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../BT-Classroom/bank-customer-ajax/src/main/java/com/codegym/service/TransferService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../BT-Classroom/bank-customer-ajax/src/main/java/com/codegym/service/WithdrawService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../BT-Classroom/bank-customer-ajax/src/main/resources/ValidationMessages.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../BT-Classroom/bank-customer-ajax/src/main/webapp/WEB-INF/views/customer/list.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../BT-Classroom/bank-customer-ajax/src/main/webapp/WEB-INF/views/customer/modal/modalCreateCustomer.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../BT-Classroom/bank-customer-ajax/src/main/webapp/WEB-INF/views/customer/modal/modalDeposit.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../BT-Classroom/bank-customer-ajax/src/main/webapp/WEB-INF/views/customer/modal/modalTransfer.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../BT-Classroom/bank-customer-ajax/src/main/webapp/WEB-INF/views/customer/modal/modalUpdateCustomer.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../BT-Classroom/bank-customer-ajax/src/main/webapp/WEB-INF/views/customer/modal/modalWithdraw.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../BT-Classroom/bank-customer-ajax/src/main/webapp/WEB-INF/views/error-page.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../BT-Classroom/bank-customer-ajax/src/main/webapp/WEB-INF/views/layout/head.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../BT-Classroom/bank-customer-ajax/src/main/webapp/WEB-INF/views/transaction/deposit.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../BT-Classroom/bank-customer-ajax/src/main/webapp/WEB-INF/views/transaction/transfer-information.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../BT-Classroom/bank-customer-ajax/src/main/webapp/WEB-INF/views/transaction/transfer.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../BT-Classroom/bank-customer-ajax/src/main/webapp/WEB-INF/views/transaction/withdraw.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../BT-Classroom/bank-customer-ajax/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../BT-Classroom/bank-customer-ajax/src/main/webapp/resources/css/bootstrap.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../BT-Classroom/bank-customer-ajax/src/main/webapp/resources/css/style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../BT-Classroom/bank-customer-ajax/src/main/webapp/resources/css/sweetalert2.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../BT-Classroom/bank-customer-ajax/src/main/webapp/resources/font-awesome-4.7.0/css/font-awesome.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../BT-Classroom/bank-customer-ajax/src/main/webapp/resources/js/ajax.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../BT-Classroom/bank-customer-ajax/src/main/webapp/resources/js/app.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../BT-Classroom/bank-customer-ajax/src/main/webapp/resources/js/bootstrap.bundle.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../BT-Classroom/bank-customer-ajax/src/main/webapp/resources/js/custom-validation.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../BT-Classroom/bank-customer-ajax/src/main/webapp/resources/js/jquery-3.6.0.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../BT-Classroom/bank-customer-ajax/src/main/webapp/resources/js/jquery.number.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../BT-Classroom/bank-customer-ajax/src/main/webapp/resources/js/jquery.validate-1.19.3.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../BT-Classroom/bank-customer-ajax/src/main/webapp/resources/js/popper-v1.16.0.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../BT-Classroom/bank-customer-ajax/src/main/webapp/resources/js/sweetalert2.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/codegym/controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/codegym/controller/LoginController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -193,7 +214,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1641865741341</updated>
-      <workItem from="1641865744952" duration="1163000" />
+      <workItem from="1641865744952" duration="3017000" />
+      <workItem from="1641891600114" duration="997000" />
     </task>
     <servers />
   </component>
@@ -210,5 +232,6 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>

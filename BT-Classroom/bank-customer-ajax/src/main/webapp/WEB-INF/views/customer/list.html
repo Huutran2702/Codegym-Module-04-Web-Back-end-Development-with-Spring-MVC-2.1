@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Customer management</title>
+
+   <th:block th:insert="~{/layout/head::head}">
+
+   </th:block>
+
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            showCreateCustomerModal();
+            showEditCustomerModal();
+            showDepositModal();
+        })
+
+        function showCreateCustomerModal() {
+            $('#createCustomer').click(function () {
+                $('#modalCreateCustomer').modal('show');
+                createNewCustomer();
+            })
+        }
+        function createNewCustomer() {
+            $('#btnCreateCustomer').click(function () {
+                handlerCreateCustomer();
+            })
+        }
+
+        function handlerCreateCustomer() {
+                    let fullName = $('#fullName').val();
+                    let email = $('#email').val();
+                    let phone = $('#phone').val();
+                    let address = $('#address').val();
+                    let newCustomer = {
+                        fullName: fullName,
+                        email: email,
+                        phone: phone,
+                        address: address,
+                    }
+                $.ajax({
+                    headers: {
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json'
+                    },
+                    type: "POST",
+                    url: "/customers",
+                    data:JSON.stringify(newCustomer),
+                    success: function (data) {
+                        console.log(data);
+                        let content = getCustomer(data);
+                        document.getElementById('customerList').innerHTML += content;
+                        resetForm('#modalCreateCustomer');
+                        App.showSuccessAlert('Success');
+                        showEditCustomerModal();
+                        showDepositModal();
+                    }
+                })
+        }
+
+
+
+        function showEditCustomerModal() {
+            $('.editCustomerBtn').click(function () {
+
+                $('#modalUpdateCustomer').modal('show');
+                let id = $(this).data('id');
+                console.log(id);
+                $.ajax({
+                    type: "GET",
+                    url: "/customers/"+id,
+                    success: function (data) {
+                        $('#fullNameUp').val(data.fullName);
+                        $('#emailUp').val(data.email);
+                        $('#phoneUp').val(data.phone);
+                        $('#addressUp').val(data.address);
+                        $('#btnUpdateCustomer').data('id',id);
+                        updateCustomer();
+                    }
+                })
+            })
+        }
+
+
+        function updateCustomer() {
+            $('#btnUpdateCustomer').click(function () {
+                let id = $(this).data("id");
+                handlerUpdateCustomer(id);
+            })
+        }
+
+        function handlerUpdateCustomer(id) {
+            let fullNameUp = $('#fullNameUp').val();
+            let emailUp = $('#emailUp').val();
+            let phoneUp = $('#phoneUp').val();
+            let addressUp = $('#addressUp').val();
+            let updateCustomer = {
+                fullName: fullNameUp,
+                email: emailUp,
+                phone: phoneUp,
+                address: addressUp,
+            }
+            $.ajax({
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                type: "PUT",
+                url: "/customers/"+id,
+                data:JSON.stringify(updateCustomer),
+                success: function (data) {
+                    console.log(data);
+                    document.getElementById('tr_'+id).innerHTML = getCustomer(data);
+                    resetForm('#modalUpdateCustomer');
+                    App.showSuccessAlert('Success');
+                }
+            })
+        }
+
+        function showDepositModal() {
+            $('.depositBtn').click(function () {
+                $('#modalDeposit').modal('show');
+                let id = $(this).data('id');
+                $.ajax({
+                    type: "GET",
+                    url: "/customers/deposit/"+id,
+                    success: function (data) {
+                       $('#customerIdDep').val(data.customer.id);
+                       $('#fullNameDep').val(data.customer.fullName);
+                       $('#balanceDep').val(data.customer.balance);
+                       $('#btnDepositMoney').data("id",id);
+                        depositMoney();
+                    }
+                })
+            })
+        }
+
+        function depositMoney() {
+            $('#btnDepositMoney').click(function () {
+                let id = $(this).data("id");
+                handlerDeposit(id);
+            })
+        }
+
+        function handlerDeposit(id) {
+         let transaction =  $('#transactionAmountDep').val();
+         console.log(transaction);
+         let newDeposit = {
+             transaction_amount: transaction
+         }
+            $.ajax({
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                type: "POST",
+                url: "/customers/deposit/"+id,
+                data:JSON.stringify(newDeposit),
+                success: function (data) {
+                    console.log(data);
+                    document.getElementById('tr_'+id).innerHTML = getCustomer(data.customer);
+                    resetForm('#modalDeposit');
+                    App.showSuccessAlert('Success');
+                }
+            })
+        }
+
+        function getCustomer(customer) {
+            return ` <tr id="tr_${customer.id}">
+            <td class="text-center" >${customer.id}</td>
+            <td >${customer.fullName}</td>
+            <td >${customer.email}</td>
+            <td class="text-center" >${customer.phone}</td>
+            <td >${customer.address} </td>
+            <td class="text-end num-space" >${customer.balance}</td>
+            <td class="text-center">
+                 <button  data-id="${customer.id}" class="btn btn-outline-secondary editCustomerBtn" title="Edit" data-toggle="tooltip">
+                    <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                </button>
+            </td>
+            <td class="text-center">
+                <button data-id="${customer.id}" class="btn btn-outline-success depositBtn" title="Deposit" data-toggle="tooltip"  >
+                    <i class="fa fa-plus" aria-hidden="true"></i>
+                </button>
+            </td>
+            <td class="text-center">
+                <a class="btn btn-outline-warning" title="Withdraw" data-toggle="tooltip" href="/customers/withdraw/${customer.id}}"  >
+                    <i class="fa fa-minus" aria-hidden="true"></i>
+                </a>
+            </td>
+            <td class="text-center">
+                <a class="btn btn-outline-primary" title="Transfer" data-toggle="tooltip"  href="/customers/transfer/${customer.id}}" >
+                    <i class="fa fa-exchange" aria-hidden="true"></i>
+                </a>
+            </td>
+            <td class="text-center">
+                <a class="btn btn-outline-danger" title="Suspended" data-toggle="tooltip" href="/customers/suspended/${customer.id}}" >
+                    <i class="fa fa-ban" aria-hidden="true"></i>
+                </a>
+            </td>
+        </tr>`;
+        }
+
+        function resetForm(name) {
+            $(name).modal('hide').on('hidden.bs.modal', function () {
+                $(this).find('form').trigger('reset');
+        })}
+    </script>
+</head>
+<body>
+<div class="container">
+    <div class="table-title">
+        <div class="row">
+            <div class="col-sm-5">
+                <h1>List of customers</h1>
+            </div>
+            <div class="col-sm-7">
+                <button   id="createCustomer" class="btn btn-outline-light"><i class="fa fa-plus-square-o" aria-hidden="true"></i> <span>Add New Customer</span></button>
+                <a href="/customers/transfer/information" class="btn btn-outline-light"><i class="fa fa-history" aria-hidden="true"></i> <span>Transfer money Information</span></a>
+            </div>
+        </div>
+    </div>
+    <table class="table table-hover table-striped" id="customers-table">
+        <thead>
+        <tr>
+            <th>#</th>
+            <th>FullName</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Address</th>
+            <th>Balance</th>
+            <th colspan="5">Action</th>
+        </tr>
+        </thead>
+        <tbody id="customerList">
+
+        <tr th:each="cus:${customers}" th:id="'tr_'+${cus.id}">
+            <td class="text-center" th:text= "${cus.id}"></td>
+            <td th:text="${cus.fullName}"></td>
+            <td th:text="${cus.email}"></td>
+            <td class="text-center" th:text="${cus.phone}"></td>
+            <td th:text="${cus.address}"> </td>
+            <td class="text-end num-space" th:text="${cus.balance}"></td>
+            <td class="text-center">
+                <button th:data-id="${cus.id}" class="btn btn-outline-secondary editCustomerBtn" title="Edit" data-toggle="tooltip">
+                    <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                </button>
+            </td>
+            <td class="text-center">
+                <button th:data-id="${cus.id}" class="btn btn-outline-success depositBtn" title="Deposit" data-toggle="tooltip"  >
+                    <i class="fa fa-plus" aria-hidden="true"></i>
+                </button>
+            </td>
+            <td class="text-center">
+                <a class="btn btn-outline-warning" title="Withdraw" data-toggle="tooltip" th:href="@{'/customers/withdraw/'+${cus.id}}"  >
+                    <i class="fa fa-minus" aria-hidden="true"></i>
+                </a>
+            </td>
+            <td class="text-center">
+                <a class="btn btn-outline-primary" title="Transfer" data-toggle="tooltip"  th:href="@{'/customers/transfer/'+${cus.id}}" >
+                    <i class="fa fa-exchange" aria-hidden="true"></i>
+                </a>
+            </td>
+            <td class="text-center">
+                <a class="btn btn-outline-danger" title="Suspended" data-toggle="tooltip" th:href="@{'/customers/suspended/'+${cus.id}}" >
+                    <i class="fa fa-ban" aria-hidden="true"></i>
+                </a>
+            </td>
+        </tr>
+
+        </tbody>
+    </table>
+</div>
+
+<th:block th:insert="~{/customer/modal/modalCreateCustomer::modalCreateCustomer}">
+
+</th:block>
+
+<th:block th:insert="~{/customer/modal/modalUpdateCustomer::modalUpdateCustomer}">
+
+</th:block>
+
+<th:block th:insert="~{/customer/modal/modalDeposit::modalDeposit}">
+
+</th:block>
+
+<th:block th:insert="~{/customer/modal/modalWithdraw::modalWithdraw}">
+
+</th:block>
+
+<th:block th:insert="~{/customer/modal/modalTransfer::modalTransfer}">
+
+</th:block>
+
+<th:block th:insert="~{/layout/head::script}">
+
+</th:block>
+
+
+</body>
+</html>
